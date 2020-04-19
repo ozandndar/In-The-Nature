@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="jumbotron">
+		<h2 class="text-center">
+			Kamp Yeri Ekle
+		</h2>
+		<a href="/kamp-yerleri">Tumunu Goruntule</a>
+				<br>
+		<a href="/">Ana Sayfa</a>
+	</div>
+	
+	<div style="width: 35%; margin: 50px auto">
+	<form action="/kamp-yerleri" method="POST">
+		<div class="form-group">
+    <label for="exampleInputEmail1">Kamp Yerinin Adi</label>
+    <input class="form-control" type="text" name="name" placeholder="Example">
+  </div>
+		
+	<div class="form-group">
+    <label for="exampleInputPassword1">Kamp Resminin Linki</label>
+    <input class="form-control" type="text" name="image" placeholder="http://example.com/link.png">
+  </div>
+		
+		<div class="form-group">
+			 <label for="exampleFormControlTextarea1">Kamp Yeri Hakkında</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
+		</div>
+		
+		<button class="btn btn-primary btn-block btn-sm" type="submit">Ekle!</button>
+	</form>		
+	</div>
+</div>
+<%- include("../partials/footer") %>

@@ -1,0 +1,108 @@
+<%- include("../partials/header") %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<li class="list-group-item active">Kamp Alanı Açıklaması</li>
+					<li class="list-group-item">Konum Bilgisi</li>
+					<li class="list-group-item">Fiyat ve Rezervasyon</li>
+				</div>
+				<p class="lead">
+					<img class="img-fluid" src="../assets/images/below.png"> </p>
+				<!-- map -->
+			</div>
+			<div class="col-md-9">
+				<div class="img-thumbnail">
+					<div class="full-width-image">
+						<img class="img img-fluid img-responsive" src="<%= data.image %>">
+					</div>
+					<div class="caption">
+						<h5 class="float-right">$9.00/night</h5>
+						<h3>
+							<a href="">
+								<%= data.name %>
+							</a>
+						</h3>
+						<p>
+							<%= data.description %>
+						</p>
+						<p>
+							<em>Yazar:
+								<%= data.author.username %>
+							</em>
+						</p>
+						<% if(currentUser){ %>
+							<% if(currentUser.username == data.author.username) {%>
+								<a href="<%= data._id %>/edit" class="btn btn-sm btn-warning">Düzenle <i class="fas fa-edit"></i></a>
+								<form method="POST" action="/kamp-yerleri/<%= data._id%>?_method=DELETE" style="display : inline">
+									<button class="btn btn-sm btn-danger">Sil <i class="fas fa-trash-alt"></i></button>
+								</form>
+								<% } %>
+									<% } %>
+					</div>
+				</div>
+				<br>
+				<div class="card card-body bg-light">
+					<div class="text-right">
+							<button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							Yorum Ekle
+						</button>
+					</div>
+					<p>
+					
+					</p>
+					<div class="collapse" id="collapseExample">
+							<div style="width: 100%; margin: 10px">
+								<form action="/kamp-yerleri/<%= data._id %>/comments" method="POST">
+									<div class="form-group">
+										<label for="exampleFormControlTextarea1">Yorumunuz</label>
+										<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment[text]"></textarea>
+									</div>
+									<button class="btn btn-primary btn-block btn-sm" type="submit">Ekle!</button>
+								</form>
+							</div>
+						
+					</div>
+					<% data.comments.forEach((comment) => {  %>
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<strong>
+									<%= comment.author.username %>
+								</strong>
+							<% if(currentUser){ %>
+								<% if(currentUser.username == comment.author.username) {%>
+									<a class="btn btn-sm btn-warning edit-comment"><i class="fas fa-edit"></i></a>
+									<form method="POST" action="/kamp-yerleri/<%= data._id %>/comments/<%= comment._id %>?_method=DELETE" style="display : inline">
+										<button class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+									</form>
+									<% } %>
+								<% } %>
+								<span class="float-right">10 gün önce</span>
+								<p class="comment-bar" id="<%= comment._id %>">
+									<%= comment.text %>
+								</p>
+								<form method="POST" action="/kamp-yerleri/<%= data._id %>/comments/<%= comment._id %>?_method=PUT" class="comment-input">
+									<input name="comment[text]" type="text" value="<%= comment.text %>" class="form-control">
+									<button class="btn btn-success btn-sm" style="margin-top : 10px;">
+										Güncelle
+									</button>
+								</form>
+							</div>
+						</div>
+						<% }); %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$(".comment-input").hide();
+	$(".edit-comment").on('click',function(){
+		$(this).parent().children(".comment-input").toggle();
+	});
+</script>
+
+	<%- include("../partials/footer") %>

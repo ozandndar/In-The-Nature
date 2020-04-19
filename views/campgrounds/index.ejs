@@ -1,0 +1,31 @@
+<%- include("../partials/header") %>
+	<div class="container">
+		<div class="jumbotron">
+			<h2 class="text-center">
+				Kamp Yerleri
+			</h2>
+			<a href="/kamp-yerleri/yeni-ekle">+ Yeni ekle</a>
+			<br>
+			<a href="/">Ana Sayfa</a>
+		</div>
+
+		<div class="row">
+			<% campItems.forEach(function(camp){ %>
+				<div class="col-md-4" style="margin-bottom : 20px">
+					<div class="card">
+						<img src="<%= camp.image %>" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">
+								<%= camp.name %>
+							</h5>
+							<p class="card-text">
+								<%= camp.description.substring(0,200) %>...</p>
+							<a href="/kamp-yerleri/<%= camp._id %>" class="btn btn-primary">Devamını Oku</a>
+						</div>
+					</div>
+				</div>
+				<% }) %>
+		</div>
+	</div>
+
+	<%- include("../partials/footer") %>

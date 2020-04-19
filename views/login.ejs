@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+	<style>
+		body {
+			height: 100vh;
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.6)), url("https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+
+	<div class="container">
+		<div class="small-form-box">
+			<div class="icon-layer">
+				<i class="fas fa-sign-in-alt"></i>
+			</div>
+			<form action="/login" method="POST">
+				<div class="form-group">
+					<label for="exampleInputPassword1">Kullanıcı Adı</label>
+					<input class="form-control" type="text" name="username">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">Şifre</label>
+					<input class="form-control" type="password" name="password">
+				</div>
+
+				<button class="btn btn-outline-primary btn-block btn-sm" type="submit">
+					<strong>Giriş Yap</strong>
+				</button>
+			</form>
+		</div>
+	</div>

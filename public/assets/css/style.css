@@ -1,0 +1,100 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+	margin-bottom: 30px;
+}
+
+footer.page-footer.font-small.indigo {
+	background: #9acbff;
+	margin-top: 30px;
+}
+
+img {
+	max-width: 100%;
+}
+
+.img-thumbnail {
+	padding: 0;
+}
+
+.img-thumbnail img {
+	width: 100%;
+}
+
+.caption {
+	padding: 10px;
+}
+
+.lead {
+	margin: 15px 0;
+}
+
+img.profile-photo {
+	width: 250px;
+	border-radius: 15px;
+}
+
+.jumbotron.profile-info {
+	padding: 2rem 2rem;
+}
+
+.bg-light {
+	background-color: transparent !important;
+}
+
+.small-form-box {
+	margin: 10% auto;
+	width: 50%;
+	background: white;
+	position: relative;
+	padding: 70px 70px;
+	border-radius: 5px;
+	-webkit-box-shadow: 4px 14px 21px -10px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 4px 14px 21px -10px rgba(0, 0, 0, 0.75);
+	box-shadow: 4px 14px 21px -10px rgba(0, 0, 0, 0.75);
+}
+
+.icon-layer {
+	width: min-content;
+	margin: auto;
+	width: 80px;
+	height: 80px;
+	background: #44baff;
+	border-radius: 100%;
+	color: white;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: -40px;
+	right: 0;
+}
+
+.small-form-box i.fas {
+	font-size: 33px;
+}
+
+.small-form-box label {
+	font-size: 14px;
+}
+
+.small-form-box a , .small-form-box button{
+	margin-top : 20px;
+}
+
+.small-form-box .form-control {
+	height: calc(1.3em + .75rem + 2px);
+}
+
+.small-form-box .form-group {
+    margin-bottom: 0.5rem;
+}
+
+#register-errors {
+	color : red;
+	font-size : 12px;
+}

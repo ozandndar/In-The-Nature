@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+<div class="container">
+	<div class="jumbotron">
+		<h2 class="text-center">
+			<%= campground.name %> Konumuna Yorum Ekle
+		</h2>
+		<a href="/kamp-yerleri/">Tumunu Goruntule</a>
+				<br>
+		<a href="/">Ana Sayfa</a>
+	</div>
+	
+	<div style="width: 35%; margin: 50px auto">
+	<form action="/kamp-yerleri/<%= campground._id %>/comments" method="POST">		
+		<div class="form-group">
+			 <label for="exampleFormControlTextarea1">Yorumunuz</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment[text]"></textarea>
+		</div>
+		
+		<button class="btn btn-primary btn-block btn-sm" type="submit">Ekle!</button>
+	</form>		
+	</div>
+</div>
+<%- include("../partials/footer") %>
