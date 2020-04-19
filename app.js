@@ -24,9 +24,14 @@ var commentRoutes 		= require("./routes/comments"),
 
 // APP CONFIG
 // seedDB();
-mongoose.connect('mongodb://localhost/yelp_camp', {
+mongoose.connect('mongodb+srv://ozan9211:8f15xe7n@inthenature-2i0mh.mongodb.net/test?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log("connected to db!");
+}).catch(err => {
+	console.log('ERROR:', err.message);
 });
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
