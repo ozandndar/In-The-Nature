@@ -23,9 +23,9 @@ var commentRoutes = require('./routes/comments'),
 	authRoutes = require('./routes/auth');
 
 // APP CONFIG
-
+var url = process.env.DatabaseURL || "mongodb://localhost/yelp_camp";
 mongoose
-	.connect(process.env.DatabaseURL, {
+	.connect(url, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useCreateIndex: true
@@ -36,16 +36,6 @@ mongoose
 	.catch(err => {
 		console.log('ERROR:', err.message);
 	});
-
-// mongoose.connect('mongodb+srv://ozan9211:8f15xe7n@inthenature-2i0mh.mongodb.net/test?retryWrites=true&w=majority', {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// 	useCreateIndex: true
-// }).then(() => {
-// 	console.log("connected to db!");
-// }).catch(err => {
-// 	console.log('ERROR:', err.message);
-// });
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
