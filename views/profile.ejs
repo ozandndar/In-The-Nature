@@ -13,21 +13,24 @@
 						</strong>
 					</span>
 					<br>
-					<br> <%= data.length %> post yayınladınız
-					<hr> <%= countedComment %> yorum yapıldı
-					<br><br>
-					<a class="btn btn-success" href="/kamp-yerleri/yeni-ekle">Yeni Kamp Ekle <i class="fas fa-plus"></i></a>
+					<br>
+					<%= data.length %> post yayınladınız
+						<hr>
+						<%= countedComment %> yorum yapıldı
+							<br>
+							<br>
+							<a class="btn btn-success" href="/kamp-yerleri/yeni-ekle">Yeni Kamp Ekle
+								<i class="fas fa-plus"></i>
+							</a>
 				</div>
 			</div>
 		</div>
-		
+
 		<h4>
 			Yayınladığınız Kamp Alanları
 		</h4>
-		
+
 	</div>
-
-
 
 	<% data.forEach((post) => { %>
 
@@ -56,7 +59,8 @@
 								<p class="card-text">
 									<%= post.description %>
 								</p>
-								<p style="color: grey; font-size : 12px">(<%= post.comments.length %>) yorum yapıldı</p>
+								<p style="color: grey; font-size : 12px">(
+									<%= post.comments.length %>) yorum yapıldı</p>
 								<a href="/kamp-yerleri/<%= post._id %>" class="btn btn-primary">Devamını Oku</a>
 							</div>
 						</div>

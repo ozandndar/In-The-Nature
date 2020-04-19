@@ -66,6 +66,9 @@ app.use((req, res, next) => {
 app.use(authRoutes);
 app.use("/kamp-yerleri",campgroundRoutes);
 app.use("/kamp-yerleri/:id/comments", commentRoutes);
-app.listen(20000, function() {
-	console.log('App is running... Great!');
-});
+
+// app.listen(20000, function() {
+// 	console.log('App is running... Great!');
+// });
+
+app.listen(process.env.PORT, process.env.IP);
